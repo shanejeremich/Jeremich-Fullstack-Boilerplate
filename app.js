@@ -7,9 +7,9 @@ const indexRouter = require("./bin");
 const usersRouter = require("./api/routes/users");
 
 const app = express();
-
 appConfig(app);
 
+// routers
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
@@ -25,7 +25,9 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
-  res.status(err.status || 500).json(err, "error");
+  res
+    .status(err.status || 500)
+    .json(`WHY THE HELL DID I RECIEVE A ${err.status} ERROR`);
 });
 
 module.exports = app;
