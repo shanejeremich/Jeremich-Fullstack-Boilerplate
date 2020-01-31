@@ -4,7 +4,7 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './data/{databaseName}.db3', // *** UPDATE *** database name
+      filename: './database/{databaseName}.db3', // *** UPDATE *** database name
     },
     useNullAsDefault: true,
     pool: {
@@ -13,16 +13,17 @@ module.exports = {
       }
     },
     migrations: {
-      directory: './data/migrations',
+      directory: './database/migrations',
+      tableName: 'dbmigrations',
     },
     seeds: {
-      directory: './data/seeds',
+      directory: './database/seeds',
     },
   },
   testing: {
     client: 'sqlite3',
     connection: {
-      filename: './data/test.db3',
+      filename: './database/test.db3',
     },
     useNullAsDefault: true,
     pool: {
@@ -31,10 +32,11 @@ module.exports = {
       }
     },
     migrations: {
-      directory: './data/migrations',
+      directory: './database/migrations',
+      tableName: 'dbmigrations',
     },
     seeds: {
-      directory: './data/seeds',
+      directory: './database/seeds',
     },
   },
 };
